@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Bus Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+
+        .container {
+            margin: 2rem;
+        }
+
+
+        .bus-buttons button {
+            margin-right: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+
+        .bus-buttons button:hover {
+            background-color: #0056b3;
+        }
+
+
+        .dropdown {
+            display: none;
+            margin-top: 1rem;
+        }
+
+
+        .dropdown select {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+
+        .details {
+            margin-top: 1rem;
+        }
+
+
+        .details p {
+            font-size: 1.2rem;
+        }
+
+
+        .graphs {
+            margin-top: 2rem;
+        }
+
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="routes.html">Routes</a>
+        <a href="settings.html">Settings</a>
+    </nav>
+    <div class="container">
+        <h1>Analytics</h1>
+        <div class="bus-buttons">
+            <button data-bus="1">Bus 1</button>
+            <button data-bus="2">Bus 2</button>
+            <button data-bus="3">Bus 3</button>
+            <button data-bus="4">Bus 4</button>
+            <button data-bus="5">Bus 5</button>
+            <button data-bus="6">Bus 6</button>
+            <button data-bus="7">Bus 7</button>
+            <button data-bus="8">Bus 8</button>
+            <button data-bus="9">Bus 9</button>
+            <button data-bus="10">Bus 10</button>
+            <!-- Add more buttons as needed -->
+        </div>
+
+
+        <!-- Dropdown for selecting metrics -->
+        <div class="dropdown" id="dropdown">
+            <select id="metric-select">
+                <option value="">Select Metric</option>
+                <option value="temperature">Temperature</option>
+                <option value="pressure">Pressure</option>
+                <option value="passenger">Passenger Count</option>
+            </select>
+        </div>
+
+
+        <!-- Details Section -->
+        <div class="details" id="details">
+            <p id="driver-name">Driver Name: N/A</p>
+            <p id="bus-number">Bus Number: N/A</p>
+            <p id="first-arrival">first arrival: N/A</p>
+            <p id="last-arrival">last arrival: N/A</p>
+        </div>
+
+
+        <!-- Graphs Section -->
+        <div class="graphs" id="graphs">
+            <iframe id="graph-frame" src="" title="Metric Graph"></iframe>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const busData = {
+                1: {
+                    firstarrival: '8:00am',
+                    lastarrival:'10:00pm',
+                    driverName: 'neeraj',
+                    busNumber: 'AP26AY4937',
+                   
+                    metrics: {
+                        temperature: 'https://industrial.ubidots.com/app/dashboards/public/widget/vSPDy1itpNZ6ZmAKx5ntSxH22S6-5fmc4SWEmHGO-3k',
+                        pressure: 'https://industrial.ubidots.com/app/dashboards/public/widget/CcHEB7AOHt-GPolRLy5PbIYWttgUgMqs9KmdniDbV_8',
+                        passenger: 'https://industrial.ubidots.com/app/dashboards/public/widget/029NwS34K_MVHDevA01jYcn00zlwCOvKw9a5MG5OvU4'
+                    }
+                },
+                2: {
+                    driverName: 'Jay',
+                    busNumber: 'AP15Z0190',
+                    firstarrival: '8:00am',
+                    lastarrival:'10:00pm',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus2',
+                        pressure: 'https://ubidots.com/graph/pressure_bus2',
+                        passenger: 'https://ubidots.com/graph/passenger_bus2'
+                    }
+                },
+                3: {
+                    driverName: 'Mike tyson',
+                    busNumber: 'AP26A1238',
+                    firstarrival: '6:00am',
+                    lastarrival:'8:00pm',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                },
+                4: {
+                    driverName: 'chiranjeevi',
+                    busNumber: 'AP25S1548',
+                    firstarrival: '5:00pm',
+                    lastarrival:'5:00am',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                },
+                5: {
+                    driverName: 'Sabari',
+                    busNumber: 'AP26B5478',
+                    firstarrival: '6:00am',
+                    lastarrival:'8:00pm',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                },
+                6: {
+                    driverName: 'aswini',
+                    busNumber: 'AP26j4578',
+                    firstarrival: '5:00pm',
+                    lastarrival:'5:00am',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                },
+                7: {
+                    driverName: 'chaitanya',
+                    busNumber: 'AP26G1128',
+                    firstarrival: '6:00am',
+                    lastarrival:'8:00pm',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                },
+                8: {
+                    driverName: 'Likith',
+                    busNumber: 'AP27A1456',
+                    firstarrival: '5:00pm',
+                    lastarrival:'5:00am',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                },
+                9: {
+                    driverName: 'rohith',
+                    busNumber: 'AP27AB6543',
+                    firstarrival: '8:00am',
+                    lastarrival:'10:00pm',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                },
+                10: {
+                    driverName: 'Manasa',
+                    busNumber: 'AP25AQ478',
+                    firstarrival: '8:00am',
+                    lastarrival:'10:00pm',
+                    metrics: {
+                        temperature: 'https://ubidots.com/graph/temperature_bus3',
+                        pressure: 'https://ubidots.com/graph/pressure_bus3',
+                        passenger: 'https://ubidots.com/graph/passenger_bus3'
+                    }
+                }
+                // Add more buses as needed
+            };
+
+
+            document.querySelectorAll('.bus-buttons button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const busId = this.getAttribute('data-bus');
+                    const data = busData[busId];
+
+
+                    if (data) {
+                        document.getElementById('details').innerHTML = `
+                            <p id="driver-name">Driver Name: ${data.driverName}</p>
+                            <p id="bus-number">Bus Number: ${data.busNumber}</p>
+                            <p id="first-arrival">first arrival: ${data.firstarrival}</p>
+                            <p id="last-arrival">last arrival: ${data.lastarrival}</p>
+                        `;
+                        document.getElementById('dropdown').style.display = 'block';
+                        document.getElementById('graph-frame').src = '';
+                    }
+                });
+            });
+
+
+            document.getElementById('metric-select').addEventListener('change', function() {
+                const busId = document.querySelector('.bus-buttons button[data-bus]').getAttribute('data-bus');
+                const metric = this.value;
+                const data = busData[busId];
+
+
+                if (metric && data) {
+                    document.getElementById('graph-frame').src = data.metrics[metric];
+                } else {
+                    document.getElementById('graph-frame').src = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
