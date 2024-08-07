@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Bus Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="analytics.html">Analytics</a>
+        <a href="routes.html">Routes</a>
+        <a href="settings.html">Settings</a>
+    </nav><br>
+    <div class="dashboard">
+        <h1>Dashboard</h1>
+        <div class="info-cards">
+            <div class="info-card" id="num-buses">
+                <h2>Number of Buses</h2>
+                <p>0</p>
+            </div>
+            <div class="info-card" id="buses-maintenance">
+                <h2>Buses Under Maintenance</h2>
+                <p>0</p>
+            </div>
+            <div class="info-card" id="buses-operation">
+                <h2>Buses in Operation</h2>
+                <p>0</p>
+            </div>
+        </div>
+        <div class="buttons">
+            <button id="report-issue-btn">Report Issue</button>
+            <button id="add-bus-btn">Add Bus</button>
+            <button id="maintenance-schedule-btn">Maintenance Schedule</button>
+        </div>
+        <!-- Hidden sections -->
+        <div id="report-issue-section" class="hidden-section">
+            <h2>Report Issue</h2>
+            <form id="report-issue-form">
+                <label for="issue-description">Describe your issue:</label>
+                <textarea id="issue-description" name="issue-description" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        <div id="add-bus-section" class="hidden-section">
+            <h2>Add Bus</h2>
+            <form id="add-bus-form">
+                <label for="bus-number">Bus Number:</label>
+                <input type="text" id="bus-number" name="bus-number" required>
+                <button type="submit">Add Bus</button>
+            </form>
+        </div>
+        <div id="maintenance-schedule-section" class="hidden-section">
+            <h2>Maintenance Schedule</h2>
+            <ul id="maintenance-list"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
