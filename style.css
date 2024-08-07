@@ -1,0 +1,254 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+
+
+
+
+
+
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+
+
+
+
+
+
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+.stats {
+    margin: 2rem 0;
+}
+
+
+
+
+
+
+
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+/* Login Page Specific Styles */
+body.login-page {
+    background-image: url('https://i.pinimg.com/736x/3e/2d/8e/3e2d8e771e5106838c6f82b2ba4c349a.jpg'); /* Path to your bus image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+
+
+
+nav {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+
+
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+
+
+
+.dashboard {
+    margin: 2rem;
+}
+
+
+
+
+.info-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+
+
+
+.info-card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+}
+
+
+
+
+.buttons {
+    margin-bottom: 2rem;
+}
+
+
+
+
+button {
+    margin-right: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+.hidden-section {
+    display: none;
+    margin-top: 2rem;
+}
+
+
+
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+form label {
+    margin-bottom: 0.5rem;
+}
